@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"conduitApp\/feature\/Articles[1:10]","start":1766924602083,"end":1766924604062,"title":"conduitApp\/feature\/Articles[1:10] 20:23:22.083-20:23:24.062 Create an Article"},{"id":2,"group":1,"content":"conduitApp\/feature\/Articles[2:20]","start":1766924604086,"end":1766924606130,"title":"conduitApp\/feature\/Articles[2:20] 20:23:24.086-20:23:26.130 Create and Delete an Article","className":"failed"},{"id":3,"group":1,"content":"conduitApp\/feature\/HomePage[1:6]","start":1766924607248,"end":1766924607789,"title":"conduitApp\/feature\/HomePage[1:6] 20:23:27.248-20:23:27.789 Verify Tags in Home Page"},{"id":4,"group":1,"content":"conduitApp\/feature\/HomePage[2:16]","start":1766924607799,"end":1766924608689,"title":"conduitApp\/feature\/HomePage[2:16] 20:23:27.799-20:23:28.689 Verify Articles in Home Page"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
